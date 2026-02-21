@@ -37,19 +37,17 @@ echo "==> Lunching target..."
 lunch lineage_platina-bp4a-userdebug
 
 echo "==> Cleaning previous build outputs..."
-m installclean
+m clean
 
 ########################################
 # BUILD EXECUTION
 ########################################
 
-echo "==> Starting target-files build..."
-if m target-files-package otatools; then
+echo "==> Starting bacon build..."
+if m bacon; then
     echo "==> Build completed successfully"
-    echo "==> Running sign_script.sh..."
-    bash sign_script.sh
 else
-    echo "Build failed — signing skipped!"
+    echo "Build failed!"
     exit 1
 fi
 
